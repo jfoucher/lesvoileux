@@ -1,6 +1,6 @@
 .idea
 app/cache
-vendor
+./vendor
 web/bundles
 parameters.yml
 app/logs
