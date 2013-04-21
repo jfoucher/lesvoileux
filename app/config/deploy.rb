@@ -23,7 +23,7 @@ elsif "prod" == target
   set :user, "ubuntu"
   set :domain,  "lesvoileux.com"
   set :branch,      "develop"
-  set :symfony_env_prod,  "prod"
+  set :symfony_env_prod,  "dev"
   set :symfony_debug_prod, "--no-debug"
   set :deploy_to,   "/home/ubuntu/www/lesvoileux.com"
 else
