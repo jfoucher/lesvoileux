@@ -1,6 +1,6 @@
 # use cap deploy CAP_ENV=preprod|prod
 
-set :target,      ENV['CAP_ENV'] || "preprod"
+set :target,      ENV['CAP_ENV'] || "prod"
 default_run_options[:pty] = true
 set   :use_sudo,      false
 
@@ -12,25 +12,25 @@ set :web_path,    "web"
 set :langs, ['en', 'fr', 'de', 'es']
 
 if "preprod" == target
-  set :user, "stamplia"
+  set :user, "ubuntu"
   set :clear_controllers, false
   set :domain,      "dev.#{application}.com"
   set :branch,  "develop"
   set :symfony_env_prod,  "dev"
   set :symfony_debug_prod, ""
-  set :deploy_to,   "/home/#{application}/www"
+  set :deploy_to,   "/home/ubuntu/www/lesvoileux.com"
 elsif "prod" == target
-  set :user, "stamplia"
-  set :domain,  "stamplia.typhon.net"
-  set :branch,      "master"
+  set :user, "ubuntu"
+  set :domain,  "lesvoileux.com"
+  set :branch,      "develop"
   set :symfony_env_prod,  "prod"
   set :symfony_debug_prod, "--no-debug"
-  set :deploy_to,   "/home/stamplia/www"
+  set :deploy_to,   "/home/ubuntu/www/lesvoileux.com"
 else
   raise "unknown target '#{target}'"
 end
 
-set :repository,  "git@github.com:Kiwup/#{application}.git"
+set :repository,  "git@bitbucket.org:jfoucher/lesvoileux.git"
 set :scm,         :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `subversion`, `mercurial`, `perforce`, or `none`
 
@@ -54,7 +54,7 @@ after "symfony:cache:warmup" do
 end
 before "symfony:cache:warmup" do
 
-  run "cd #{latest_release} && #{php_bin} #{symfony_console} --env=#{symfony_env_prod} #{symfony_debug_prod} doctrine:schema:update --force"
+  #run "cd #{latest_release} && #{php_bin} #{symfony_console} --env=#{symfony_env_prod} #{symfony_debug_prod} doctrine:schema:update --force"
 
 end
 
