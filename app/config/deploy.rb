@@ -36,7 +36,7 @@ set :scm,         :git
 
 set :model_manager, "doctrine"
 # Or: `propel`
-set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor", "app/Resources/translations", "uploads"]
+set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor", "app/Resources/translations", "app/Resources/java"]
 set :shared_files,      ["app/config/parameters.yml"]
 
 #langs.each do |lang|

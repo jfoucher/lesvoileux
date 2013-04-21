@@ -4,3 +4,7 @@ app/cache
 web/bundles
 parameters.yml
 app/logs
+vendor
+web/css
+0e15936_jquery.customSelect.min_3.js
+web/js
