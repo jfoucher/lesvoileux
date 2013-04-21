@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2013-04-05T09:44:40Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="ed3e48f05a29be848001ebb14f149b2f4ce15518" resname="sainfront.home.menu.search.form.period.label">
+        <jms:reference-file line="68">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Période</source>
+        <target state="new">Période</target>
+      </trans-unit>
+      <trans-unit id="e4d8c767abee5f461845c5d1eb74238eff8ad80d" resname="sainfront.home.menu.search.form.place.label">
+        <jms:reference-file line="75">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Lieu</source>
+        <target state="new">Lieu</target>
+      </trans-unit>
+      <trans-unit id="b926796b9c25708dc508b97081a630ee723a0222" resname="sainfront.home.menu.search.form.title.label">
+        <jms:reference-file line="65">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Titre</source>
+        <target state="new">Titre</target>
+      </trans-unit>
+      <trans-unit id="0fb01b86c9bad5bf421a7a6f4a42dab77162cccf" resname="sainfront.home.menu.search.form.type.label">
+        <jms:reference-file line="81">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Type</source>
+        <target state="new">Type</target>
+      </trans-unit>
+      <trans-unit id="13f5799f736978530de9447ab5e6e80b6baac262" resname="sainfront.home.menu.search.form.visibility.label">
+        <jms:reference-file line="88">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Visibility</source>
+        <target state="new">Visibility</target>
+      </trans-unit>
+      <trans-unit id="0f91de9185bc0db0afac2f29b72d4e9e0f399112" resname="saintfront.home.menu.login">
+        <jms:reference-file line="102">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Connection</source>
+        <target state="new">Connection</target>
+      </trans-unit>
+      <trans-unit id="d4ea8467da44570bce9a0ce8577db00b21696e4b" resname="saintfront.home.menu.pages">
+        <jms:reference-file line="44">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Pages</source>
+        <target state="new">Pages</target>
+      </trans-unit>
+      <trans-unit id="91a41fddffa4954f16b2cdff446b23624b2e0919" resname="saintfront.home.menu.search">
+        <jms:reference-file line="60">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Recherche</source>
+        <target state="new">Recherche</target>
+      </trans-unit>
+      <trans-unit id="3f29de07c18fda0acc10d36b798501be95a7b571" resname="saintfront.home.nothing.available">
+        <jms:reference-file line="25">views/Default/index.html.haml</jms:reference-file>
+        <source>Désolé, aucune oeuvre disponible</source>
+        <target state="new">Désolé, aucune oeuvre disponible</target>
+      </trans-unit>
+      <trans-unit id="061dfe9fcadd98c704fc5b9f1a0483627197f6cb" resname="saintfront.home.order.date">
+        <jms:reference-file line="53">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Date</source>
+        <target state="new">Date</target>
+      </trans-unit>
+      <trans-unit id="9535d41f1f92dda90720ace651b29f934672c08d" resname="saintfront.home.order.location">
+        <jms:reference-file line="56">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Lieu</source>
+        <target state="new">Lieu</target>
+      </trans-unit>
+      <trans-unit id="c0ca989e399d923463a8caabdada54a18f5cf86e" resname="saintfront.home.order.title">
+        <jms:reference-file line="50">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Titre</source>
+        <target state="new">Titre</target>
+      </trans-unit>
+      <trans-unit id="8f578cde88f5fadbf3af299224997cc3eb2ca2f3" resname="saintfront.home.work.condition">
+        <jms:reference-file line="110">views/Default/index.html.haml</jms:reference-file>
+        <jms:reference-file line="244">views/Default/index.html.haml</jms:reference-file>
+        <source>Etat</source>
+        <target state="new">Etat</target>
+      </trans-unit>
+      <trans-unit id="f907bfb3f004648e9773fe144e52a139befe64f6" resname="saintfront.home.work.groups">
+        <jms:reference-file line="128">views/Default/index.html.haml</jms:reference-file>
+        <jms:reference-file line="262">views/Default/index.html.haml</jms:reference-file>
+        <source>Groupes</source>
+        <target state="new">Groupes</target>
+      </trans-unit>
+      <trans-unit id="96172f8d12225c18c12bd75a14d0236bb6fa1780" resname="saintfront.home.work.height">
+        <jms:reference-file line="90">views/Default/index.html.haml</jms:reference-file>
+        <jms:reference-file line="224">views/Default/index.html.haml</jms:reference-file>
+        <source>Hauteur</source>
+        <target state="new">Hauteur</target>
+      </trans-unit>
+      <trans-unit id="9a53e379383c49f86f4cbc54e95508219e613d7b" resname="saintfront.home.work.period">
+        <jms:reference-file line="100">views/Default/index.html.haml</jms:reference-file>
+        <jms:reference-file line="234">views/Default/index.html.haml</jms:reference-file>
+        <source>Période</source>
+        <target state="new">Période</target>
+      </trans-unit>
+      <trans-unit id="e6b416284d75081191811f68b4d4420f13582684" resname="saintfront.home.work.place">
+        <jms:reference-file line="105">views/Default/index.html.haml</jms:reference-file>
+        <jms:reference-file line="239">views/Default/index.html.haml</jms:reference-file>
+        <source>Lieu</source>
+        <target state="new">Lieu</target>
+      </trans-unit>
+      <trans-unit id="a6b0ebcb7db5d98febb73e62aa996a5fedadeb5f" resname="saintfront.home.work.signed">
+        <jms:reference-file line="119">views/Default/index.html.haml</jms:reference-file>
+        <jms:reference-file line="253">views/Default/index.html.haml</jms:reference-file>
+        <source>Signé</source>
+        <target state="new">Signé</target>
+      </trans-unit>
+      <trans-unit id="37241e1406ae93918e78c0f1829616cab1c458dc" resname="saintfront.home.work.style">
+        <jms:reference-file line="115">views/Default/index.html.haml</jms:reference-file>
+        <jms:reference-file line="249">views/Default/index.html.haml</jms:reference-file>
+        <source>Style</source>
+        <target state="new">Style</target>
+      </trans-unit>
+      <trans-unit id="a528c8d183ad9fd6601e614bebfa5cac12561849" resname="saintfront.home.work.width">
+        <jms:reference-file line="95">views/Default/index.html.haml</jms:reference-file>
+        <jms:reference-file line="229">views/Default/index.html.haml</jms:reference-file>
+        <source>Largeur</source>
+        <target state="new">Largeur</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

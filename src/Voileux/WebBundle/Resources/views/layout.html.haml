@@ -1,0 +1,123 @@
+!!!
+
+
+%head
+    %meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+    %title
+        #{title is defined ? title : 'voileux.home.head.title'|trans|desc('Location de voiliers entre particuliers - Les Voileux')}
+    %meta(name="description" content="")
+    %meta(name="viewport" content="width=device-width")
+
+
+    - block stylesheets
+        - stylesheets |
+                '@VoileuxWebBundle/Resources/css/normalize.min.css' |
+                '@VoileuxWebBundle/Resources/css/main.css' |
+                '@VoileuxWebBundle/Resources/css/jquery-ui-1.10.2.custom.min.css' |
+                filter='?yui_css' |
+            %link(rel="stylesheet" href=asset_url)
+
+    %script(src="bundles/voileuxweb/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js")
+%body
+    /[if lt IE 7] <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+
+    .header-container
+        %header.wrapper.clearfix.full-width
+            %h1.title
+                %a(href="/")
+                    = 'voileux.home.main.nav.title'|trans|desc('Les<span style="color:#ac3639">Voileux</span>.com')|raw
+            %nav
+                %ul
+
+                    %li
+                        %a.btn(href="mailto:jfoucher@gmail.com?subject=Je+souhaite+louer+mon+voilier&body=Bonjour%2C%20je%20souhaite%20louer%20mon%20voilier.%20%0AIl%20s'agit%20d'un%20%5BTYPE%20DE%20VOILIER%5D%20que%20je%20souhaite%20louer%20%5BTARIF%5D%20par%20semaine.%0A%0A%5BAjoutez%20toutes%20informations%20utiles%20ici%5D%0A%0A%5BVeuillez%20joindre%20%C3%A9galement%20des%20photos%20en%20haute%20r%C3%A9solution%20et%20de%20bonne%20qualit%C3%A9%5D")
+                            = 'voileux.home.main.nav.rent_your_boat.button.text'|trans|desc('Louez votre voilier')
+
+    - block hero ''
+    .main-container
+        - block main
+            .main.wrapper.clearfix
+
+                %article.half
+                    %h1
+                        Propriétaires
+                    %h3
+                        Trouvez gratuitement des locataires pour votre voilier
+                    %p
+                        Les Voileux vous permet de trouver des locataires pour votre voilier, ce qui vous permet ainsi de faire naviguer votre bateau plus souvent et aide à en payer les frais fixe, tels que place de port, carénage, etc&hellip;
+
+                %article.half
+                    %h1
+                        Locataires
+                    %h3
+                        Louez des voiliers à des tarifs très attractifs
+                    %p
+                        Trouver des bateaux à louer moins cher que chez des professionnels, réservez en ligne et profitez de vos vacances !
+
+            / #main
+    / #main-container
+    .footer-container
+        - block footer
+            %footer.wrapper.clearfix
+                %section
+                    %h3
+                        Aide
+
+                    %ul
+                        %li
+                            %a(href="mailto:info@lesvoileux.com")
+                                Email
+                        %li
+                            %a(href="/faq")
+                                %abbr(title="#{'voileux.footer.faq.title'|trans|desc('Foire aux Questions')}")
+                                    #{'voileux.footer.faq.label'|trans|desc('FAQ')}
+
+                %section
+                    %h3
+                        Liens
+                    %ul
+                        %li
+                            %a(href="http://blog.lesvoileux.com")
+                                Blog
+                        %li
+                            %a(href="http://twitter.com/les_voileux")
+                                Twitter
+                        %li
+                            %a(href="https://www.facebook.com/pages/Les-Voileux/357730767666219")
+                                Facebook
+                        %li
+                            %iframe{:allowTransparency => "false", :frameborder => "0", :scrolling => "no", :src => "//www.facebook.com/plugins/like.php?href=#{'https://www.facebook.com/pages/Les-Voileux/357730767666219'|url_encode}&amp;send=false&amp;layout=button_count&amp;width=120&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=466554040048537", :style => ""}
+                %section
+                    %h3
+                        Derniers Voiliers à louer
+
+                    %ul
+                        - for boat in latestBoats
+                            %li
+                                %a(href="#{path('boat', {slug: boat.slug})}")
+                                    #{'voileux.footer.latest.boats.links.text'|trans({'%name%': boat.name, '%city%': boat.city, '%country%': boat.country})|desc('Location %name% à %city%, %country%')}
+
+
+    - block javascripts
+        %script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+        %script
+            window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.9.1.min.js"><\/script>')
+
+
+        - javascripts |
+                '@VoileuxWebBundle/Resources/js/vendor/slider.js' |
+                '@VoileuxWebBundle/Resources/js/vendor/jquery.placeholder.min.js' |
+                '@VoileuxWebBundle/Resources/js/vendor/jquery.customSelect.min.js' |
+                '@VoileuxWebBundle/Resources/js/vendor/jquery-ui-1.10.2.custom.min.js' |
+                |
+                '@VoileuxWebBundle/Resources/js/main.js' |
+                filter='?closure' |
+
+            %script(src=asset_url)
+
+        %script
+            var _gaq=[['_setAccount','UA-8465441-26'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+

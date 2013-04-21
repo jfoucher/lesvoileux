@@ -1,0 +1,38 @@
+- extends "VoileuxWebBundle::layout.html.haml"
+
+- block hero ''
+- block main
+    .main.wrapper.clearfix
+        .half
+            %article.faq-item.full
+                %h1
+                    #{'voileux.faq.about.title'|trans|desc("Qu'est ce c'est que ce site ?")}
+                .response
+                    #{'voileux.faq.about.response'|trans|desc("Il s'agit d'un site ou les propriétaires de voiliers (et exclusivement de voiliers) peuvent proposer leur bateau à la location.")}
+            %article.faq-item.full
+                %h1
+                    #{'voileux.faq.why.title'|trans|desc("Pourquoi ?")}
+                .response
+                    #{'voileux.faq.why.response'|trans|desc("La plupart des voiliers sur nos côtes naviguent rarement, mais même immobilisés ils coutent toujours à leur propriétaire. Certaines personnes (les plus sages sans doute) ne souhaitent pas entretenir un bateau tout l'année et préferent louer. Nous avons donc choisi de les mettre en relation : le propriétaire amorti ses frais, le locataire peut louer à moindre coût, et le voilier navigue")}
+
+        .half
+            %article.faq-item.full
+                %h1
+                    #{'voileux.faq.how_renter.title'|trans|desc("Comment trouver un voilier à louer ?")}
+                .response
+                    #{'voileux.faq.how.response'|trans|desc("Vous avez pour cela un formulaire sur la page d'accueil. Entrez votre adresse email, la zone de navigation, vos dates d'arrivée et de départ ainsi que le nombre de personnes. Nous vous recontacterons très rapidement avec les offres succeptibles de vous intéresser")}
+            %article.faq-item.full
+                %h1
+                    #{'voileux.faq.how_owner.title'|trans|desc("Comment mettre mon voilier à louer ?")}
+                .response
+                    #{'voileux.faq.how.response'|trans|desc("Très simple, vous n'avez qu'à cliquer sur le bouton en haut à droite de toutes les pages du site et nous envoyer un message.")}
+
+            %article.faq-item.full
+                %h1
+                    #{'voileux.faq.how_rent_now.title'|trans|desc("Comment réserver ?")}
+                .response
+                    #{'voileux.faq.how.response'|trans|desc("Une fois que vous avez le voilier de votre choix, vous remplissez le formulaire de réservation sur la page du voilier en question (par exemple ici pour <a href="">louer une Felouque sur le nil</a>) et le propriétaire se mettra en contact avec vous dans les plus brefs délais")}
+
+
+
+

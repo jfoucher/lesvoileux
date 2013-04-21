@@ -1,0 +1,55 @@
+- extends "VoileuxWebBundle::layout.html.haml"
+
+- block hero
+    .hero
+        %ul.slider.clearfix
+            - for boat in boats
+                %li
+                    %img(src="#{asset('bundles/voileuxweb/img/boats/') ~ boat.photos[0]}" width="100%")
+                    .description
+                        %h3
+                            %a(href="#{path('boat', {slug: boat.slug})}")
+                                #{boat.name}
+                        %p
+                            #{boat.country} - #{boat.pricePerDay} #{boat.currency}
+
+        #main-search
+            .form-title
+                %h2
+                    Trouvez un voilier à louer
+                %p
+                    Location de voiliers entre particuliers
+            %submit-success(style="display:none")
+                %p
+                    Votre demande de réservation vient d'etre prise en compte, nous vous contacterons dès que possible avec les offres succeptibles de vous intéresser
+            %form.clearfix.search-form#main-search-form(action="submit.php" method="post")
+                .form-field.form-location
+                    %label(for="location")
+                        Ou voulez vous aller ?
+                    %input#location(type="text" name="location" placeholder="Ou voulez vous aller ?")
+
+                .form-field.form-email
+                    %label(for="email")
+                        Email
+                    %input#email(type="email" name="email" placeholder="Email")
+                .form-field.form-date
+                    %label(for="date-from")
+                        Date d'entrée
+                    %input.datepicker#date-from(type="text" name="date-from" placeholder="Date d'entrée")
+                .form-field.form-date
+                    %label(for="date-to")
+                        Date de sortie
+                    %input.datepicker#date-to(type="text" name="date-to" placeholder="Date de sortie")
+                .form-field.form-persons
+                    %label(for="persons")
+                        Personnes
+                    %select#persons(name="persons")
+                        %option(value="1")
+                            1 personne
+                        - for i in [2..8][0]
+                            %option(value="#{i}")
+                                #{i} personnes
+                .form-field.form-submit
+                    %button.btn#search-now(type="submit")
+                        Chercher
+

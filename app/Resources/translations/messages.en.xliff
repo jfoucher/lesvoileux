@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2013-04-21T22:39:00Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="2a2ae2d7aa17c63627b6d59c68bd691241b4a906" resname="voileux.boat.details.min_duration.label">
+        <jms:reference-file line="27">views/Default/boat.html.haml</jms:reference-file>
+        <source>%duration% jours</source>
+        <target state="new">%duration% jours</target>
+      </trans-unit>
+      <trans-unit id="3746fd491a3b2ccc64b0b5205b74e3a0b390e983" resname="voileux.boat.details.title">
+        <jms:reference-file line="6">views/Default/boat.html.haml</jms:reference-file>
+        <source>%name% à %city%, %country%</source>
+        <target state="new">%name% à %city%, %country%</target>
+      </trans-unit>
+      <trans-unit id="e3732ddf7460f7736f475db1a08de1ece5d861b4" resname="voileux.boat.details.tweet.text">
+        <jms:reference-file line="10">views/Default/boat.html.haml</jms:reference-file>
+        <source>%name% à louer à %city%, %country% sur lesvoileux.com</source>
+        <target state="new">%name% à louer à %city%, %country% sur lesvoileux.com</target>
+      </trans-unit>
+      <trans-unit id="054a825a97ec4fa0f90dd857da91e43399e39efb" resname="voileux.footer.latest.boats.links.text">
+        <jms:reference-file line="89">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Location %name% à %city%, %country%</source>
+        <target state="new">Location %name% à %city%, %country%</target>
+      </trans-unit>
+      <trans-unit id="d2274f751d5e0bde9c261b7b6d618fc95afcf74f" resname="voileux.home.head.title">
+        <jms:reference-file line="7">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Location de voiliers entre particuliers - Les Voileux</source>
+        <target state="new">Location de voiliers entre particuliers - Les Voileux</target>
+      </trans-unit>
+      <trans-unit id="e508652dc4c8140a9d61c4f2302ddeeff97302db" resname="voileux.home.main.nav.rent_your_boat.button.text">
+        <jms:reference-file line="34">Resources/views/layout.html.haml</jms:reference-file>
+        <source>Louez votre voilier</source>
+        <target state="new">Louez votre voilier</target>
+      </trans-unit>
+      <trans-unit id="e2186f3c5e19e13b265dbd7c1f499e4ef16314df" resname="voileux.home.main.nav.title">
+        <jms:reference-file line="28">Resources/views/layout.html.haml</jms:reference-file>
+        <source><![CDATA[Les<span style="color:#ac3639">Voileux</span>.com]]></source>
+        <target state="new"><![CDATA[Les<span style="color:#ac3639">Voileux</span>.com]]></target>
+      </trans-unit>
+      <trans-unit id="6027a69c198546aeb562e3f42d8a5b3c9f7cdde0" resname="voileux.single.boat.title">
+        <jms:reference-file line="42">WebBundle/Controller/DefaultController.php</jms:reference-file>
+        <source>Location voilier %name% à %city%, %country%</source>
+        <target state="new">Location voilier %name% à %city%, %country%</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

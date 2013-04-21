@@ -1,0 +1,66 @@
+- extends "VoileuxWebBundle::layout.html.haml"
+
+- block main
+    .main.wrapper.clearfix
+        %article.boat-details
+            %h1 #{'voileux.boat.details.title'|trans({'%name%': boat.name, '%city%': boat.city, '%country%': boat.country})|desc('%name% à %city%, %country%')}
+            .img-and-share
+                %ul.share
+                    %li
+                        %a.twitter-share-button{"data-count" => "none", "data-hashtags" => "locationvoilier", "data-text" => "#{'voileux.boat.details.tweet.text'|trans({'%name%': boat.name, '%city%': boat.city, '%country%': boat.country})|desc('%name% à louer à %city%, %country% sur lesvoileux.com')}", "data-via" => "les_voileux", :href => "https://twitter.com/share"} Tweet
+                        :javascript
+                            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                    %li
+                        %a{"data-pin-config" => "none", "data-pin-do" => "buttonPin", :href => "//pinterest.com/pin/create/button/?url=#{url('boat', {slug: boat.slug})|url_encode}&media=#{url('root') ~ asset('bundles/voileuxweb/img/boats/') ~ boat.photos[0]|url_encode}&description=#{boat.description|striptags[:460]|url_encode}&hellip;"}
+                            %img{:src => "//assets.pinterest.com/images/pidgets/pin_it_button.png"}/
+                    %li
+                        %iframe{:allowTransparency => "false", :frameborder => "0", :scrolling => "no", :src => "//www.facebook.com/plugins/like.php?href=#{url('boat', {slug: boat.slug})|url_encode}&amp;send=false&amp;layout=button_count&amp;width=120&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=466554040048537", :style => ""}
+                %a.img-link{:href => "#"}
+                    %img{:alt => "#{boat.name}", :src => "#{asset('bundles/voileuxweb/img/boats/') ~ boat.photos[0]}"}/
+            %aside
+                %ul
+                    %li.clearfix.odd.first
+                        %span.name Type de location
+                        %span.value Avec skipper
+                    %li.clearfix
+                        %span.name Durée minimum
+                        %span.value = 'voileux.boat.details.min_duration.label'|trans({'%duration%': boat.minRentDuration})|desc('%duration% jours')
+                    %li.clearfix.odd
+                        %span.name Longueur
+                        %span.value #{boat.length} m
+                    %li.clearfix
+                        %span.name Nombre de places
+                        %span.value #{boat.accomodation}
+                    %li.clearfix.odd
+                        %span.name Nombre de cabines
+                        %span.value #{boat.cabins}
+                    %li.clearfix
+                        %span.name Pays
+                        %span.value #{boat.country}
+                    %li.clearfix.last
+                        %span.name Ville
+                        %span.value #{boat.city}
+            %p
+                #{boat.description|striptags}
+            %iframe{:frameborder => "0", :height => "350", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q=Assouan,%20Egypte&amp;ie=UTF8&amp;hq=&amp;hnear=Assouan,%20Egypte&amp;t=h&amp;z=9&amp;output=embed", :width => "100%"}
+        %aside.booking
+            #submit-success{:style => "display:none"}
+                %p Votre demande de réservation vient d'etre prise en compte.
+            %form#detail-search-form.clearfix.search-form{:action => "submit.php", :method => "post"}
+                %input#location{:name => "location", :type => "hidden", :value => "felouque-assouan"}/
+                .form-field.form-email
+                    %label{:for => "email"} Email
+                    %input#email{:name => "email", :placeholder => "Email", :required => "", :type => "email"}/
+                .clearfix
+                    .form-field.form-date
+                        %label{:for => "date-from"} Date d'entrée
+                        %input#date-from.datepicker{:name => "date-from", :placeholder => "Date d'entrée", :required => "", :type => "text"}/
+                    .form-field.form-date
+                        %label{:for => "date-to"} Date de sortie
+                        %input#date-to.datepicker{:name => "date-to", :placeholder => "Date de sortie", :required => "", :type => "text"}/
+                .price
+                    .per-day par jour
+                    %span#total-price{"data-daily-price" => "80"} 80
+                    %span.currency €
+                .form-field.form-submit
+                    %button#search-now.btn{:type => "submit"} Réserver

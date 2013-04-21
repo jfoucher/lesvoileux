@@ -1,0 +1,32 @@
+services:
+
+    voileux.core.abstract.repository:
+        abstract:           true
+        public:             false
+        class:              Doctrine\ORM\EntityRepository
+        factory_service:    doctrine.orm.entity_manager
+        factory_method:     getRepository
+
+    voileux.core.user.repository:
+        parent:     voileux.core.abstract.repository
+        arguments:  [VoileuxCoreBundle:User]
+
+    voileux.core.boat.repository:
+        parent:     voileux.core.abstract.repository
+        arguments:  [VoileuxCoreBundle:Boat]
+
+    voileux.core.boat.manager:
+        class:      Voileux\CoreBundle\Entity\BoatManager
+        public:     true
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @service_container
+            - @voileux.core.boat.repository
+
+    voileux.core.user.manager:
+        class:      Voileux\CoreBundle\Entity\UserManager
+        public:     true
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @service_container
+            - @voileux.core.user.repository
