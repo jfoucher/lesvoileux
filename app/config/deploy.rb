@@ -46,10 +46,10 @@ set :shared_files,      ["app/config/parameters.yml"]
 
 after "symfony:cache:warmup" do
 
-  run "cd #{latest_release} && #{php_bin} #{symfony_console} --env=#{symfony_env_prod} #{symfony_debug_prod} assetic:dump"
+  #run "cd #{latest_release} && #{php_bin} #{symfony_console} --env=#{symfony_env_prod} #{symfony_debug_prod} assetic:dump"
 
   langs.each do |lang|
-    run "cd #{latest_release} && #{php_bin} #{symfony_console} --env=#{symfony_env_prod} #{symfony_debug_prod} translation:extract --config app #{lang}"
+    #run "cd #{latest_release} && #{php_bin} #{symfony_console} --env=#{symfony_env_prod} #{symfony_debug_prod} translation:extract --config app #{lang}"
   end
 end
 before "symfony:cache:warmup" do
