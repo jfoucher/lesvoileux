@@ -42,7 +42,7 @@
                         %span.value #{boat.city}
             %p
                 #{boat.description|striptags}
-            %iframe{:frameborder => "0", :height => "350", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q=Assouan,%20Egypte&amp;ie=UTF8&amp;hq=&amp;hnear=Assouan,%20Egypte&amp;t=h&amp;z=9&amp;output=embed", :width => "100%"}
+            %iframe{:frameborder => "0", :height => "350", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "http://maps.google.com/maps?q=#{boat.city|url_encode(true)},%20#{boat.country|url_encode(true)}&z=9&output=embed", :width => "100%"}
         %aside.booking
             #submit-success{:style => "display:none"}
                 %p Votre demande de réservation vient d'etre prise en compte.
