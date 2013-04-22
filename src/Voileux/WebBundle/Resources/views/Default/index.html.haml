@@ -7,11 +7,14 @@
                 %li
                     %img(src="#{asset('bundles/voileuxweb/img/boats/') ~ boat.photos[0]}" width="100%")
                     .description
-                        %h3
-                            %a(href="#{path('boat', {slug: boat.slug})}")
-                                #{boat.name}
-                        %p
-                            #{boat.country} - #{boat.pricePerDay} #{boat.currency}
+                        %a.avatar(href="#")
+                            %img(src="#{(boat.owner.avatar is defined and boat.owner.avatar is not null ? boat.owner.avatar| apply_filter('user_index') : boat.owner.email|gravatar(80))}" width="40")
+                        .text
+                            %h3
+                                %a(href="#{path('boat', {slug: boat.slug})}")
+                                    #{boat.name}
+                            %p
+                                #{boat.country} - #{boat.pricePerDay} #{boat.currency}
 
         #main-search
             .form-title

@@ -34,14 +34,14 @@ class User extends BaseUser
      */
 
     protected $name;
-
-
+    
     /**
-     * @var int $level
+     * @ORM\Column(type="string", nullable=true)
+     * @var string $avatar
      * @Annotation\Expose
-     * @ORM\Column(type="integer", nullable=true)
      */
-    protected $level;
+
+    protected $avatar;
 
 
 
@@ -78,26 +78,27 @@ class User extends BaseUser
         return $this->name;
     }
 
+
     /**
-     * Set level
+     * Set avatar
      *
-     * @param integer $level
+     * @param string $avatar
      * @return User
      */
-    public function setLevel($level)
+    public function setAvatar($avatar)
     {
-        $this->level = $level;
+        $this->avatar = $avatar;
     
         return $this;
     }
 
     /**
-     * Get level
+     * Get avatar
      *
-     * @return integer 
+     * @return string 
      */
-    public function getLevel()
+    public function getAvatar()
     {
-        return $this->level;
+        return $this->avatar;
     }
 }

@@ -1,0 +1,7 @@
+services:
+    voileux.twig.web.extension:
+        class: Voileux\WebBundle\Twig\WebExtension
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }

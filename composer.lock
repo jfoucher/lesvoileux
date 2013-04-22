@@ -3,8 +3,58 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "fd6c46b0c8ec3bdf1e100ac154ef1ef3",
+    "hash": "0c404e2fed5c8e3f577a7d8ed4c39ab8",
     "packages": [
+        {
+            "name": "avalanche123/imagine-bundle",
+            "version": "dev-develop",
+            "target-dir": "Avalanche/Bundle/ImagineBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avalanche123/AvalancheImagineBundle.git",
+                "reference": "d64adf98dbec72c088dcf9cbfb1888f702477b09"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avalanche123/AvalancheImagineBundle/zipball/d64adf98dbec72c088dcf9cbfb1888f702477b09",
+                "reference": "d64adf98dbec72c088dcf9cbfb1888f702477b09",
+                "shasum": ""
+            },
+            "require": {
+                "imagine/imagine": "dev-master",
+                "symfony/framework-bundle": "2.*"
+            },
+            "require-dev": {
+                "makasim/temp-file": "dev-master"
+            },
+            "suggest": {
+                "symfony/twig-bundle": "2.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Avalanche\\Bundle\\ImagineBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image manipulation using Imagine and Twig Filters.",
+            "homepage": "https://github.com/avalanche123/AvalancheImagineBundle",
+            "keywords": [
+                "image manipulation",
+                "imagine"
+            ],
+            "time": "2013-04-16 20:27:49"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.1.1",
@@ -793,12 +843,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "cfabd4076c52ae0e86646dd22cc786c86783308c"
+                "reference": "ae5ff75ac8076213af0bfece16ecc012bf3ec151"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/cfabd4076c52ae0e86646dd22cc786c86783308c",
-                "reference": "cfabd4076c52ae0e86646dd22cc786c86783308c",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/ae5ff75ac8076213af0bfece16ecc012bf3ec151",
+                "reference": "ae5ff75ac8076213af0bfece16ecc012bf3ec151",
                 "shasum": ""
             },
             "require": {
@@ -864,7 +914,54 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-04-21 18:56:48"
+            "time": "2013-04-22 12:44:19"
+        },
+        {
+            "name": "imagine/imagine",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avalanche123/Imagine.git",
+                "reference": "v0.4.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/v0.4.1",
+                "reference": "v0.4.1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "sami/sami": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Imagine": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image processing for PHP 5.3",
+            "homepage": "http://imagine.readthedocs.org/",
+            "keywords": [
+                "drawing",
+                "graphics",
+                "image manipulation",
+                "image processing"
+            ],
+            "time": "2012-12-13 18:31:18"
         },
         {
             "name": "jms/aop-bundle",
@@ -2887,12 +2984,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "743a15439d19a3eb5bf1f2932c27a99d9a186be1"
+                "reference": "f10364a07e037a021e77fb92566bb06fa42df34b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/743a15439d19a3eb5bf1f2932c27a99d9a186be1",
-                "reference": "743a15439d19a3eb5bf1f2932c27a99d9a186be1",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/f10364a07e037a021e77fb92566bb06fa42df34b",
+                "reference": "f10364a07e037a021e77fb92566bb06fa42df34b",
                 "shasum": ""
             },
             "require": {
@@ -2967,7 +3064,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-04-21 14:27:47"
+            "time": "2013-04-22 06:34:44"
         },
         {
             "name": "twig/extensions",
@@ -3082,7 +3179,8 @@
         "jms/translation-bundle": 20,
         "jms/serializer-bundle": 20,
         "kriswallsmith/assetic": 20,
-        "stof/doctrine-extensions-bundle": 20
+        "stof/doctrine-extensions-bundle": 20,
+        "avalanche123/imagine-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

@@ -231,11 +231,30 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     bottom: 20px;
     right: 20px;
 }
+
+.hero ul li .description .text{
+    float:right;
+}
 .hero ul li .description a{
     color: #FFF;
     text-decoration: none;
 }
-
+.hero ul li .description a.avatar{
+    margin: 0.1em 0 0 2em;
+    float:right;
+}
+.hero ul li .description a.avatar img{
+    border: 2px solid #fff;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
+    -o-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
+    -ms-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
+}
+.hero ul li .description h3, .hero ul li .description p{
+    margin: 0;
+}
 .hero #main-search {
     color: #fff;
     -webkit-text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);

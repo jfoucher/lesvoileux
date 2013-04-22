@@ -37,7 +37,8 @@ class LoadUserData extends AbstractFixture
                 'password' => 'qwerty',
             ),
             array(
-                'name' => 'Thieery Fabre',
+                'name' => 'Thierry Fabre',
+                'avatar' => 'thierry-skipper-ondine-charter.jpg',
                 'username' => 'tfabre',
                 'email' => 'info@croisiere-chasse-nosybe.com',
                 'password' => 'qwerty',
@@ -64,6 +65,7 @@ class LoadUserData extends AbstractFixture
         $userAdmin = new User();
         $userAdmin->setName($user['name']);
         $userAdmin->setUsername($user['username']);
+        $userAdmin->setAvatar($user['avatar']);
         $userAdmin->setEmail($user['email']);
         $userAdmin->setPlainPassword($user['password']);
         $userAdmin->setEnabled(true);

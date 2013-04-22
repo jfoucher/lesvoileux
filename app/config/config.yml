@@ -125,3 +125,45 @@ stof_doctrine_extensions:
     orm:
         default:
             timestampable: true
+
+
+avalanche_imagine:
+    filters:
+        user_index:
+            type: chain
+            options:
+                filters:
+                    relative_resize:
+                        widen: 80
+                    crop:
+                        start: [0, 0]
+                        size: [80, 80]
+        boat_index:
+            type: chain
+            options:
+                filters:
+                    relative_resize:
+                        widen: 1920
+                    crop:
+                        start: [0, 0]
+                        size: [1920, 700]
+
+        user_main:
+            type: chain
+            options:
+                filters:
+                    relative_resize:
+                        widen: 137
+                    crop:
+                        start: [0, 0]
+                        size: [137, 137]
+
+        boat_details:
+            type: chain
+            options:
+                filters:
+                    relative_resize:
+                        widen: 568
+                    crop:
+                        start: [0, 0]
+                        size: [568, 322]
