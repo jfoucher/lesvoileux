@@ -156,11 +156,11 @@
                 $movingSlide = ( dir === 'next' ) ? $currentSlide : $nextSlide;
 
             $nextSlide.css({'z-index': 10, 'position': 'absolute', 'top': 0, 'left': 0});
-            $movingSlide.css({'z-index': 1, float: 'left', position: 'static'});
+            $movingSlide.css({'z-index': 1, 'float': 'left', 'position': 'static'});
 
             $nextSlide.fadeIn(1000, function(){
                 self.$slides.find('.description').hide();
-                $nextSlide.css({'z-index': 1, float: 'left', position: 'static'});
+                $nextSlide.css({'z-index': 1, 'float': 'left', 'position': 'static'});
                 $nextSlide.find('.description').fadeIn();
 
 
