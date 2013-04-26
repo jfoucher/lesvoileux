@@ -36,8 +36,9 @@ set :scm,         :git
 
 set :model_manager, "doctrine"
 # Or: `propel`
-set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor", "app/Resources/translations", "app/Resources/java"]
-set :shared_files,      ["app/config/parameters.yml"]
+set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor", "app/Resources/translations"]
+set :shared_files,      ["app/config/parameters.yml", app_path + "/Resources/java/closure-compiler.jar",
+app_path + "/Resources/java/cssembed-0.3.6.jar", app_path + "/Resources/java/yui-compressor.jar"]
 
 #langs.each do |lang|
 #  shared_files.push "app/Resources/translations/messages.#{lang}.xliff"
@@ -46,7 +47,7 @@ set :shared_files,      ["app/config/parameters.yml"]
 
 after "symfony:cache:warmup" do
 
-  #run "cd #{latest_release} && #{php_bin} #{symfony_console} --env=#{symfony_env_prod} #{symfony_debug_prod} assetic:dump"
+  run "cd #{latest_release} && #{php_bin} #{symfony_console} --env=#{symfony_env_prod} #{symfony_debug_prod} assetic:dump"
 
   langs.each do |lang|
     run "cd #{latest_release} && #{php_bin} #{symfony_console} --env=#{symfony_env_prod} #{symfony_debug_prod} translation:extract --config app #{lang}"
@@ -74,7 +75,7 @@ logger.level = Logger::MAX_LEVEL
 namespace :deploy do
   desc "Overwrite the restart task because symfony doesn't need it."
   task :restart do
-    #run "sudo /etc/init.d/php5-fpm reload"
+    run "sudo /etc/init.d/php5-fpm reload"
   end
 
   desc "Overwrite the stop task because symfony doesn't need it."
