@@ -240,12 +240,23 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     text-decoration: none;
 }
 .hero ul li .description a.avatar{
+    display:block;
     margin: 0.1em 0 0 2em;
     float:right;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -o-border-radius: 8px;
+    -ms-border-radius: 8px;
+    border-radius: 8px;
+    border: 2px solid #fff;
 }
 .hero ul li .description a.avatar img{
-    border: 2px solid #fff;
-    border-radius: 8px;
+
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px;
+    border-radius: 6px;
     -webkit-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
     -o-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
