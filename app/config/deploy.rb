@@ -36,7 +36,7 @@ set :scm,         :git
 
 set :model_manager, "doctrine"
 # Or: `propel`
-set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor", "app/Resources/translations"]
+set :shared_children,     [app_path + "/logs", web_path + "/uploads", web_path + "/media", "vendor", "app/Resources/translations"]
 set :shared_files,      [web_path + "/blog/wp-config.php", "app/config/parameters.yml", app_path + "/Resources/java/closure-compiler.jar",
 app_path + "/Resources/java/cssembed-0.3.6.jar", app_path + "/Resources/java/yui-compressor.jar"]
 

@@ -5,10 +5,10 @@
         %ul.slider.clearfix
             - for boat in boats
                 %li
-                    %img(src="#{asset('bundles/voileuxweb/img/boats/') ~ boat.photos[0]}" width="100%")
+                    %img(src="#{(asset('bundles/voileuxweb/img/boats/') ~ boat.photos[0])|apply_filter('boat_index')}" width="100%")
                     .description
                         %a.avatar(href="#{path('boat', {slug: boat.slug})}")
-                            %img(src="#{(boat.owner.avatar is defined and boat.owner.avatar is not null ? boat.owner.avatar| apply_filter('user_index') : boat.owner.email|gravatar(80))}" width="40")
+                            %img(src="#{(boat.owner.avatar is defined and boat.owner.avatar is not null ? boat.owner.avatar|apply_filter('user_index') : boat.owner.email|gravatar(80))}" width="40")
                         .text
                             %h3
                                 %a(href="#{path('boat', {slug: boat.slug})}")

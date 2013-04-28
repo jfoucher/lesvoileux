@@ -163,7 +163,4 @@ avalanche_imagine:
             options:
                 filters:
                     relative_resize:
-                        widen: 568
-                    crop:
-                        start: [0, 0]
-                        size: [568, 322]
+                        widen: 687
