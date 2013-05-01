@@ -6,6 +6,6 @@
     </IfModule>
 
     RewriteCond %{REQUEST_FILENAME} !-f
-#    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ app_dev.php [QSA,L]
 </IfModule>

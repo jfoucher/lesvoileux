@@ -1,3 +1,5 @@
+@import url('http://fonts.googleapis.com/css?family=Abel|Racing+Sans+One');
+
 /* ==========================================================================
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
@@ -12,7 +14,7 @@ textarea {
 
 body {
     font-size: .9em;
-    line-height: 1.4;
+    line-height: 1.4em;
     background: url(../bundles/voileuxweb/img/body-bg.png) top left repeat #fafafa;
 }
 
@@ -62,7 +64,7 @@ textarea {
    ========================================================================== */
 
 body {
-    font: 16px/26px Helvetica, Helvetica Neue, Arial;
+    font: 16px/26px Abel, Helvetica, Helvetica Neue, Arial, sans-serif;
 }
 
 .wrapper {
@@ -112,9 +114,38 @@ body {
     background: -ms-linear-gradient(top,  #fcfeff 0%,#edf4f7 53%,#ebf1f4 100%); /* IE10+ */
     background: linear-gradient(to bottom,  #fcfeff 0%,#edf4f7 53%,#ebf1f4 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfeff', endColorstr='#ebf1f4',GradientType=0 ); /* IE6-9 */
+    margin: 0 0 1em 0;
+}
+
+.main aside.owner{
+    text-align: center;
+
+}
+.main aside.owner a{
+    display: block;
+}
+.main aside.owner a.avatar{
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border-radius: 4px;
+    padding: 6px;
+    margin: 0 auto;
+    background: #fff;
+}
+.main aside.owner a.avatar img{
+    border-radius: 2px;
+    width: 100%;
 
 }
 
+
+.main aside.owner a.owner{
+    display: block;
+    margin-top: 1em;
+    text-decoration: none;
+    color: #1d7a9c;
+    font-size: 1.4em;
+}
 
 .title {
 
@@ -127,8 +158,7 @@ body {
     color: #474749;
     text-decoration: none;
     text-shadow: 0 1px 0 rgba(255,255,255, 0.6);
-    font-family: "League Gothic", Impact, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-style: italic;
+    font-family: "Racing Sans One","League Gothic", Impact, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .full-width.wrapper {
@@ -167,8 +197,9 @@ nav a {
 
 .main aside {
     color: #444;
-    padding: 10px;
+    padding: 1%;
 }
+
 
 .footer-container footer {
     color: #999;
@@ -190,18 +221,27 @@ label.placeholder {
     cursor: text;
     padding: 8px 8px;
     color: #999999;
+    font-family: Abel, Helvetica, Helvetica Neue, Arial, sans-serif;
 
 }
 
 .ui-widget, .ui-datepicker table{
     font-size: 0.8em !important;
+    font-family: Abel, Helvetica, Helvetica Neue, Arial, sans-serif !important;
 }
 
 input:placeholder, textarea:placeholder {
     color: #999999;
+    font-family: Abel, Helvetica, Helvetica Neue, Arial, sans-serif;
 }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     color: #999999;
+    font-family: Abel, Helvetica, Helvetica Neue, Arial, sans-serif;
+}
+
+input::-moz-input-placeholder, textarea::-moz-input-placeholder {
+    color: #999999;
+    font-family: Abel, Helvetica, Helvetica Neue, Arial, sans-serif;
 }
 
 
@@ -654,6 +694,12 @@ footer ul {
         margin-top: 0;
     }
 
+
+    .main aside.owner {
+        padding: 2%;
+        width: 26%;
+    }
+
     .main .half {
         float: left;
         width: 48%;
@@ -697,7 +743,7 @@ a.btn, button.btn {
     box-shadow: inset 0 1px 0 0 #96CA6D;
     color: #FFF;
 
-    font: bold 11px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    font: bold 11px/1 Abel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
     padding: 7px 20px 8px 20px;
     text-align: center;
     text-shadow: 0 -1px 0 #4C9021;

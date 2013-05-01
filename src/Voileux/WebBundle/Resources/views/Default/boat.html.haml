@@ -63,3 +63,11 @@
                     %span.currency €
                 .form-field.form-submit
                     %button#search-now.btn{:type => "submit"} Réserver
+
+        %aside.owner
+            .description
+                %a.avatar(href="#")
+                    %img(src="#{(boat.owner.avatar is defined and boat.owner.avatar is not null ? boat.owner.avatar|apply_filter('user_main') : boat.owner.email|gravatar(400))}" width="200")
+                %a.owner(href="#")
+                    %strong
+                        #{boat.owner.name}

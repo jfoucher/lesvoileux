@@ -128,6 +128,11 @@ stof_doctrine_extensions:
 
 
 avalanche_imagine:
+    source_root:  %kernel.root_dir%/../web
+    web_root:     %kernel.root_dir%/../web
+    cache_prefix: media/cache
+    driver:       gd
+
     filters:
         user_index:
             type: chain
@@ -153,10 +158,10 @@ avalanche_imagine:
             options:
                 filters:
                     relative_resize:
-                        widen: 137
+                        widen: 400
                     crop:
                         start: [0, 0]
-                        size: [137, 137]
+                        size: [400, 400]
 
         boat_details:
             type: chain

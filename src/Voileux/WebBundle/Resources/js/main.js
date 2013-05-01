@@ -35,6 +35,10 @@ $('.search-form').submit(function(e){
         $('#search-now').removeClass('loading disabled');
         form.hide();
         $('#submit-success').show();
+        if(window._gaq) {
+            _gaq.push(['_trackPageview', '/search_boat_success']);
+        }
+
     });
     req.fail(function(xhr) {
         var data = JSON.parse(xhr.responseText);
