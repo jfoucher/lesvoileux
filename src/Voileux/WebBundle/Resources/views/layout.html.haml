@@ -1,5 +1,5 @@
 !!!
-
+#{renderHtmlTag(locale)}
 
 %head
     %meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
@@ -109,20 +109,24 @@
                 '@VoileuxWebBundle/Resources/js/vendor/jquery.placeholder.min.js' |
                 '@VoileuxWebBundle/Resources/js/vendor/jquery.customSelect.min.js' |
                 '@VoileuxWebBundle/Resources/js/vendor/jquery-ui-1.10.2.custom.min.js' |
+                '@VoileuxWebBundle/Resources/js/vendor/placeholders.js' |
                 |
                 '@VoileuxWebBundle/Resources/js/main.js' |
                 filter='?closure' |
             %script(src=asset_url)
 
-        %script
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-8465441-27']);
-            _gaq.push(['_trackPageview']);
+        - if isEnabled('analytics')
+            %script
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-8465441-27']);
+                _gaq.push(['_trackPageview']);
 
-            (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
+                (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+
+
 
 

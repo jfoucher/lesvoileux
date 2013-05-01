@@ -33,6 +33,7 @@ class WebExtension extends \Twig_Extension
         return array(
             'renderTemplates' => new \Twig_Function_Method($this, 'renderTemplatesFunction'),
             'renderHtmlTag' => new \Twig_Function_Method($this, 'renderHtmlTagFunction'),
+            'getParameter' => new \Twig_Function_Method($this, 'getParameterFunction'),
             'isEnabled' => new \Twig_Function_Method($this, 'isEnabledFunction'),
         );
     }
@@ -46,6 +47,7 @@ class WebExtension extends \Twig_Extension
 
         return false;
     }
+
 
     public function gravatar($str, $size = 105)
     {
@@ -104,7 +106,7 @@ class WebExtension extends \Twig_Extension
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="'.$lang.'"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9" lang="'.$lang.'"> <![endif]-->
   <!--[if gt IE 8]><!--> <html class="no-js" lang="'.$lang.'"> <!--<![endif]-->
-  <!--[if (gt IE 9)|!(IE)]><!--> <html lang="es-ES"> <!--<![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--> <html lang="'.$lang.'"> <!--<![endif]-->
   ';
 
 

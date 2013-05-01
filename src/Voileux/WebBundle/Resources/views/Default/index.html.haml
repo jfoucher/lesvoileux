@@ -22,36 +22,29 @@
                     Trouvez un voilier à louer
                 %p
                     Location de voiliers entre particuliers
-            %submit-success(style="display:none")
+            #submit-success(style="display:none")
                 %p
                     Votre demande de réservation vient d'etre prise en compte, nous vous contacterons dès que possible avec les offres succeptibles de vous intéresser
-            %form.clearfix.search-form#main-search-form(action="submit.php" method="post")
+            %form.clearfix.search-form#main-search-form(action="{{ path('search') }}" method="post" )
+                #{ form_errors(form) }
+
                 .form-field.form-location
-                    %label(for="location")
-                        Ou voulez vous aller ?
-                    %input#location(type="text" name="location" placeholder="Ou voulez vous aller ?")
+                    #{ form_label(form.location, 'voileux.home.search.form.location.label'|trans|desc('Où Voulez vous aller'), { 'label_attr': {'class': 'inline'} }) }
+                    #{ form_widget(form.location) }
 
                 .form-field.form-email
-                    %label(for="email")
-                        Email
-                    %input#email(type="email" name="email" placeholder="Email")
+                    #{ form_label(form.email, 'voileux.home.search.form.email.label'|trans|desc('Email'), { 'label_attr': {'class': 'inline'} }) }
+                    #{ form_widget(form.email) }
                 .form-field.form-date
-                    %label(for="date-from")
-                        Date d'entrée
-                    %input.datepicker#date-from(type="text" name="date-from" placeholder="Date d'entrée")
+                    #{ form_label(form.dateFrom, 'voileux.home.search.form.dateFrom.label'|trans|desc('Date d\'entrée'), { 'label_attr': {'class': 'inline'} }) }
+                    #{ form_widget(form.dateFrom, {'attr':{'class': 'datepicker'}}) }
                 .form-field.form-date
-                    %label(for="date-to")
-                        Date de sortie
-                    %input.datepicker#date-to(type="text" name="date-to" placeholder="Date de sortie")
+                    #{ form_label(form.dateTo, 'voileux.home.search.form.dateTo.label'|trans|desc('Date de sortie'), { 'label_attr': {'class': 'inline'} }) }
+                    #{ form_widget(form.dateTo, {'attr':{'class': 'datepicker'}}) }
                 .form-field.form-persons
-                    %label(for="persons")
-                        Personnes
-                    %select#persons(name="persons")
-                        %option(value="1")
-                            1 personne
-                        - for i in [2..8][0]
-                            %option(value="#{i}")
-                                #{i} personnes
+                    #{ form_label(form.persons, 'voileux.home.search.form.persons.label'|trans|desc('Personnes')) }
+                    #{ form_widget(form.persons) }
+                    #{form_rest(form)}
                 .form-field.form-submit
                     %button.btn#search-now(type="submit")
                         Chercher

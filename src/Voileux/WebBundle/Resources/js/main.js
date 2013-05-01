@@ -2,12 +2,24 @@ $(document).ready(function(){
 
     $('ul.slider').fullWidthSlider({
         autoplay: true
-    })
+    });
+    PlaceholderLabels();
 });
 
 
 $('.form-field input').placeholder();
-$('#persons').customSelect({customClass:'niceSelect'});
+$('#search_persons').customSelect({customClass:'niceSelect'});
+
+function getFormData($form){
+    var unindexed_array = $form.serializeArray();
+    var indexed_array = {};
+
+    $.map(unindexed_array, function(n, i){
+        indexed_array[n['name']] = n['value'];
+    });
+
+    return indexed_array;
+}
 
 $('.search-form').submit(function(e){
     var form = $(this);
@@ -24,15 +36,20 @@ $('.search-form').submit(function(e){
     }
     hideErrors();
     e.preventDefault();
-    var params = $(this).serializeArray();
+    var params = getFormData($(this));
+    params = JSON.stringify(params);
+    console.log(params);
     var req = $.ajax({
-        url: 'submit.php',
+        url: '/search',
         data: params,
         type: 'POST'
     });
     $('#search-now').addClass('loading disabled');
-    req.done(function(data) {
+    req.always(function(){
         $('#search-now').removeClass('loading disabled');
+    });
+    req.done(function(data) {
+
         form.hide();
         $('#submit-success').show();
         if(window._gaq) {

@@ -7,6 +7,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Voileux\CoreBundle\Entity\Boat;
 use JMS\TranslationBundle\Annotation\Desc;
+use Voileux\CoreBundle\Form\SearchType;
+use Voileux\CoreBundle\Model\Search;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -14,13 +17,15 @@ class DefaultController extends Controller
      * @Route("/", name="root")
      * @Template(engine="haml")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $boatManager = $this->get('voileux.core.boat.manager');
         $boats = $boatManager->findByPosition(Boat::BOAT_POSITION_HOME);
-        return $this->getGeneralData() + array(
+        $search = new Search();
+        $form = $this->createForm(new SearchType(), $search, array('csrf_protection' => false));
+        return $this->getGeneralData($request) + array(
             'boats' => $boats,
-
+            'form' => $form->createView()
         );
     }
 
@@ -28,16 +33,16 @@ class DefaultController extends Controller
      * @Route("/faq", name="faq")
      * @Template(engine="haml")
      */
-    public function faqAction()
+    public function faqAction(Request $request)
     {
-        return $this->getGeneralData();
+        return $this->getGeneralData($request);
     }
 
     /**
      * @Route("/{slug}", name="boat")
      * @Template(engine="haml")
      */
-    public function boatAction($slug)
+    public function boatAction(Request $request, $slug)
     {
         /**
          * @var \Voileux\CoreBundle\Entity\BoatManager $boatManager
@@ -51,18 +56,19 @@ class DefaultController extends Controller
             '%city%' => $boat->getCity(),
             '%country%' => $boat->getCountry(),
         ));
-        return $this->getGeneralData() + array(
+        return $this->getGeneralData($request) + array(
             'boat' => $boat,
             'title' => $title,
         );
     }
 
-    protected function getGeneralData()
+    protected function getGeneralData(Request $request)
     {
         $boatManager = $this->get('voileux.core.boat.manager');
         $latestBoats = $boatManager->getLatest(5);
         return array(
             'latestBoats' => $latestBoats,
+            'locale' => $request->getLocale(),
         );
     }
 }
