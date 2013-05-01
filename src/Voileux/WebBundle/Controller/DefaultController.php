@@ -23,6 +23,9 @@ class DefaultController extends Controller
         $boats = $boatManager->findByPosition(Boat::BOAT_POSITION_HOME);
         $search = new Search();
         $form = $this->createForm(new SearchType(), $search, array('csrf_protection' => false));
+
+
+
         return $this->getGeneralData($request) + array(
             'boats' => $boats,
             'form' => $form->createView()

@@ -22,16 +22,30 @@ class AjaxController extends Controller
         $search = new Search();
         $form = $this->createForm(new SearchType(), $search, array('csrf_protection' => false));
 
-        $form->bind($this->getData($request));
+        $data = $this->getData($request);
+        $form->bind($data);
 
         if($form->isValid()){
+            $message = \Swift_Message::newInstance()
+                ->setSubject('New Boat search on les voileux')
+                ->setFrom($this->container->getParameter('voileux.admin.email'))
+                ->setReplyTo($search->getEmail())
+                ->setTo($this->container->getParameter('voileux.admin.email'))
+                ->setBody(
+                    $this->renderView(
+                        'VoileuxCoreBundle:Email:search.txt.haml',
+                        array('search' => $search)
+                    )
+                )
+            ;
+            $this->get('mailer')->send($message);
 
             $w = $this->get('jms_serializer')->serialize($search, 'json');
 
             return new Response($w, 200, array('Content-type' => 'application/json'));
 
         } else {
-            $r = $this->get('jms_serializer')->serialize($form->getErrors(), 'json');
+            $r = $this->get('jms_serializer')->serialize($form, 'json');
             return new Response($r, 400, array('Content-type' => 'application/json'));
         }
 

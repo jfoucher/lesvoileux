@@ -36,13 +36,24 @@ $('.search-form').submit(function(e){
     }
     hideErrors();
     e.preventDefault();
-    var params = getFormData($(this));
+    var params = {
+        location: $('#search_location').val(),
+        email: $('#search_email').val(),
+        dateFrom: $('#search_dateFrom').val(),
+        dateTo: $('#search_dateTo').val(),
+        persons: $('#search_persons').val()
+    }
+
+    console.log(params);
+
     params = JSON.stringify(params);
     console.log(params);
     var req = $.ajax({
         url: '/search',
         data: params,
-        type: 'POST'
+        type: 'POST',
+        dataType: 'json',
+        contentType: "application/json"
     });
     $('#search-now').addClass('loading disabled');
     req.always(function(){

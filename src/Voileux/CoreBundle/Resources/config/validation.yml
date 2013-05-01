@@ -1,0 +1,16 @@
+Voileux\CoreBundle\Model\Search:
+    properties:
+        email:
+            - NotBlank: ~
+            - Email: ~
+        dateFrom:
+            - NotBlank: ~
+        dateTo:
+            - NotBlank: ~
+        location:
+            - NotBlank: ~
+        persons:
+            - NotBlank: ~
+            - Range:
+                min: 1
+                max: 8
