@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+ <title>{{'stamplia.rss.feed.title'|trans|desc('Derniers voiliers à louer sur Les Voileux')}}</title>
+ <description>{{'stamplia.rss.feed.title'|trans|desc('Flux RSS des derniers voiliers publiés sur Les Voileux')}}</description>
+ <link>{{ url('boats', {_format: 'rss'}) }}</link>
+ <lastBuildDate>{{ "now"|date(constant('DATE_RSS')) }}</lastBuildDate>
+ <pubDate>{{ "now"|date(constant('DATE_RSS')) }}</pubDate>
+ <ttl>1800</ttl>
+{% for boat in boats %}
+ <item>
+  <title>{{ boat.name }}</title>
+  <description><![CDATA[<img src="{{(asset('bundles/voileuxweb/img/boats/') ~ boat.photos[0])|apply_filter('boat_details')}}" /> {{ boat.description|raw }}]]></description>
+  <link>{{url('boat', {slug: boat.slug})}}</link>
+  <guid>{{url('boat', {slug: boat.slug})}}</guid>
+  <pubDate>{{ boat.createdAt|date(constant('DATE_RSS')) }}</pubDate>
+ </item>
+{% endfor %}
+
+</channel>
+</rss>
