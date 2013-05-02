@@ -1,5 +1,10 @@
 parameters:
     voileux.admin.email: 'info@lesvoileux.com'
+    mailer_transport:  smtp
+    mailer_host:       in.mailjet.com
+    mailer_user:       68327b485d1cefa7e1426a7597063e58
+    mailer_password:   ecd45d17f21c6171958c27a544b31c1a
+    mailer_port: 587
 
 imports:
     - { resource: parameters.yml }
