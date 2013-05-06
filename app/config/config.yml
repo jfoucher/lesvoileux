@@ -175,3 +175,7 @@ avalanche_imagine:
                 filters:
                     relative_resize:
                         widen: 687
+
+voileux_persona:
+    verifier_url: 'https://verifier.login.persona.org/verify'
+    user_provider: @voileux.core.user.manager

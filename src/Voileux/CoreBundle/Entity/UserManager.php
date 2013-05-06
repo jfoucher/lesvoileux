@@ -3,7 +3,7 @@
 namespace Voileux\CoreBundle\Entity;
 
 use Voileux\CoreBundle\Entity\User;
-use FOS\UserBundle\Doctrine\UserManager as BaseUserManager;
+use FOS\UserBundle\Entity\UserManager as BaseUserManager;
 use FOS\UserBundle\Model\UserInterface;
 use Doctrine\ORM\EntityManager;
 
@@ -51,7 +51,6 @@ class UserManager extends BaseUserManager
      */
     public function updateUser(UserInterface $user, $andFlush = true)
     {
-        $this->updateLevel($user);
         parent::updateUser($user, $andFlush);
 
     }
@@ -68,6 +67,10 @@ class UserManager extends BaseUserManager
         return $account;
     }
 
-
+    public function supportsClass($class)
+    {
+        
+        return $class == 'Voileux\CoreBundle\Entity\User';
+    }
 
 }

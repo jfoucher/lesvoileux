@@ -65,7 +65,10 @@ class LoadUserData extends AbstractFixture
         $userAdmin = new User();
         $userAdmin->setName($user['name']);
         $userAdmin->setUsername($user['username']);
-        $userAdmin->setAvatar($user['avatar']);
+        if(isset($user['avatar'])) {
+            $userAdmin->setAvatar($user['avatar']);
+        }
+
         $userAdmin->setEmail($user['email']);
         $userAdmin->setPlainPassword($user['password']);
         $userAdmin->setEnabled(true);

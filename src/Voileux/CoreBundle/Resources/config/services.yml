@@ -27,6 +27,8 @@ services:
         class:      Voileux\CoreBundle\Entity\UserManager
         public:     true
         arguments:
-            - @doctrine.orm.entity_manager
-            - @service_container
-            - @voileux.core.user.repository
+            - @security.encoder_factory
+            - @fos_user.util.username_canonicalizer
+            - @fos_user.util.email_canonicalizer
+            - @fos_user.entity_manager
+            - Voileux\CoreBundle\Entity\User

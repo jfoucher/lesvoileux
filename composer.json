@@ -4,7 +4,12 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
-
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/jfoucher/PersonaBundle.git"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.2.*",
@@ -33,7 +38,8 @@
         "knplabs/knp-menu-bundle": "1.1.*",
         "stof/doctrine-extensions-bundle": "dev-master",
         "avalanche123/imagine-bundle": "dev-develop",
-        "proxiweb/persona-bundle": "dev-master"
+        "sensio/buzz-bundle": "dev-master"
+
     },
     "scripts": {
         "post-install-cmd": [

@@ -79,4 +79,6 @@ class DefaultController extends Controller
             'locale' => $request->getLocale(),
         );
     }
+
+
 }

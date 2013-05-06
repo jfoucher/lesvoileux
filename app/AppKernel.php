@@ -36,6 +36,8 @@ class AppKernel extends Kernel
             new Voileux\WebBundle\VoileuxWebBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
+            new Voileux\PersonaBundle\VoileuxPersonaBundle(),
+            new Sensio\Bundle\BuzzBundle\SensioBuzzBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

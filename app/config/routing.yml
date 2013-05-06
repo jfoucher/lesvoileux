@@ -1,3 +1,8 @@
+voileux_persona:
+    resource: "@VoileuxPersonaBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 voileux_web:
     resource: "@VoileuxWebBundle/Controller/"
     type:     annotation
