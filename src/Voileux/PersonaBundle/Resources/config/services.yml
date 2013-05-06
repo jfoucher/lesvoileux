@@ -1,17 +1,19 @@
-services:
+parameters:
+    persona.verifier_url: 'https://verifier.login.persona.org/verify'
+    persona.audience_url: 'http://example.com'
 
+services:
     voileux.persona.authentication.listener:
         class: Voileux\PersonaBundle\Security\Firewall\PersonaListener
         arguments:
             - @security.context
             - @voileux.persona.authentication.provider
-            - %persona.verifier_url%
-            - @buzz
 
     voileux.persona.authentication.provider:
         class: Voileux\PersonaBundle\Security\Authentication\Provider\PersonaProvider
         arguments:
-            - @security.context
-            - %persona.user_provider%
+            - @voileux.core.user.manager
+            - true
             - %persona.verifier_url%
+            - %persona.audience_url%
             - @buzz

@@ -15,6 +15,7 @@ use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProvid
 use Voileux\PersonaBundle\Security\Authentication\Token\PersonaUserToken;
 use Buzz\Browser;
 
+
 class PersonaProvider implements AuthenticationProviderInterface
 {
     private $userProvider;
@@ -27,6 +28,7 @@ class PersonaProvider implements AuthenticationProviderInterface
 
     public function __construct(UserProviderInterface $userProvider = null, $createUserIfNotExists = false, $verifierUrl, $audienceUrl, Browser $browser )
     {
+        $implements = class_implements($userProvider);
         if ($createUserIfNotExists && !$userProvider instanceof \FOS\UserBundle\Model\UserManagerInterface) {
             throw new \InvalidArgumentException('The $userProvider must implement UserManagerInterface if $createIfNotExists is true.');
         }

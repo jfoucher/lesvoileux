@@ -178,4 +178,4 @@ avalanche_imagine:
 
 voileux_persona:
     verifier_url: 'https://verifier.login.persona.org/verify'
-    user_provider: @voileux.core.user.manager
+    user_provider: voileux.core.user.manager

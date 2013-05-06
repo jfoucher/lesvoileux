@@ -6,8 +6,9 @@ use Voileux\CoreBundle\Entity\User;
 use FOS\UserBundle\Entity\UserManager as BaseUserManager;
 use FOS\UserBundle\Model\UserInterface;
 use Doctrine\ORM\EntityManager;
+use FOS\UserBundle\Model\UserManagerInterface;
 
-class UserManager extends BaseUserManager
+class UserManager extends BaseUserManager implements UserManagerInterface
 {
 
     public function findBy($params, $order, $limit)

@@ -22,10 +22,8 @@ class PersonaListener implements ListenerInterface
 {
     protected $securityContext;
     protected $authenticationManager;
-    protected $verifierUrl;
-    protected $browser;
 
-    public function __construct(SecurityContextInterface $securityContext, AuthenticationManagerInterface $authenticationManager, $verifierUrl, Browser $browser)
+    public function __construct(SecurityContextInterface $securityContext, AuthenticationManagerInterface $authenticationManager)
     {
         $this->securityContext = $securityContext;
         $this->authenticationManager = $authenticationManager;
@@ -51,8 +49,8 @@ class PersonaListener implements ListenerInterface
             // ... you might log something here
 
             // To deny the authentication clear the token. This will redirect to the login page.
-            // $this->securityContext->setToken(null);
-            // return;
+             $this->securityContext->setToken(null);
+             return;
 
             // Deny authentication with a '403 Forbidden' HTTP response
             $response = new Response();

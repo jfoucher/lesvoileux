@@ -1,0 +1,6 @@
+
+services:
+    security.authentication.factory.persona:
+        class:  Voileux\PersonaBundle\DependencyInjection\Security\Factory\PersonaFactory
+        tags:
+            - { name: security.listener.factory }

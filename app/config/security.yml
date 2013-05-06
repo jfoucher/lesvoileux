@@ -4,6 +4,7 @@ jms_security_extra:
 
 
 security:
+
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
 
@@ -16,8 +17,17 @@ security:
     providers:
         fos_user.user_provider:
             id: fos_user.user_provider.username
+        voileux.user_manager:
+            id: voileux.core.user.manager
 
     firewalls:
+
+        persona_secured:
+            pattern: ^/
+            persona: true
+            provider: voileux.user_manager
+            logout:    true
+            anonymous:    true
 
         main:
             provider: fos_user.user_provider.username
