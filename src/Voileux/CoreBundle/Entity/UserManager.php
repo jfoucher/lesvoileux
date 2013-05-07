@@ -7,6 +7,8 @@ use FOS\UserBundle\Entity\UserManager as BaseUserManager;
 use FOS\UserBundle\Model\UserInterface;
 use Doctrine\ORM\EntityManager;
 use FOS\UserBundle\Model\UserManagerInterface;
+use Voileux\CoreBundle\Util\String;
+use Voileux\PersonaBundle\Security\Authentication\Token\PersonaUserToken;
 
 class UserManager extends BaseUserManager implements UserManagerInterface
 {
@@ -56,6 +58,16 @@ class UserManager extends BaseUserManager implements UserManagerInterface
 
     }
 
+    public function createUserFromAccessToken($token)
+    {
+        $user = $this->createUser();
+        $user->setEmail($token->email);
+        $user->setUsername($token->email);
+        $user->setPlainPassword(String::generateToken());
+        $this->updateUser($user, true);
+        return $user;
+
+    }
 
     public function mergeUser(User $user, $andReload = false)
     {

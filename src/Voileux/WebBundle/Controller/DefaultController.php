@@ -74,10 +74,19 @@ class DefaultController extends Controller
     {
         $boatManager = $this->get('voileux.core.boat.manager');
         $latestBoats = $boatManager->getLatest(5);
-        return array(
+
+
+
+        $res = array(
             'latestBoats' => $latestBoats,
             'locale' => $request->getLocale(),
         );
+
+        if ($user = $this->get('security.context')->getToken()->getUser()) {
+            $res['user'] = $user;
+        }
+
+        return $res;
     }
 
 

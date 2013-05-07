@@ -16,7 +16,7 @@
                 '@VoileuxWebBundle/Resources/css/jquery-ui-1.10.2.custom.css' |
                 filter='?yui_css' |
             %link(rel="stylesheet" href=asset_url)
-
+    %link(rel="stylesheet" href=asset('bundles/voileuxpersona/css/persona-buttons.css'))
     %script(src="bundles/voileuxweb/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js")
 %body
     /[if lt IE 7] <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
@@ -28,6 +28,18 @@
                     = 'voileux.home.main.nav.title'|trans|desc('Les<span style="color:#ac3639">Voileux</span>.com')|raw
             %nav
                 %ul
+                    %li
+                        - if user is defined and user.email is defined
+                            Bonjour #{(user.name is defined and user.name is not null ? user.name : user.email)}
+                            %a#signout(href="#") Déconnection
+                            %a#signin.persona-button(href="#" style="display:none")
+                                %span
+                                    Connection
+                        - else
+                            %a#signout(href="#" style="display:none") Déconnection
+                            %a#signin.persona-button(href="#")
+                                %span
+                                    Connection
 
                     %li
                         %a.btn(href="mailto:jfoucher@gmail.com?subject=Je+souhaite+louer+mon+voilier&body=Bonjour%2C%20je%20souhaite%20louer%20mon%20voilier.%20%0AIl%20s'agit%20d'un%20%5BTYPE%20DE%20VOILIER%5D%20que%20je%20souhaite%20louer%20%5BTARIF%5D%20par%20semaine.%0A%0A%5BAjoutez%20toutes%20informations%20utiles%20ici%5D%0A%0A%5BVeuillez%20joindre%20%C3%A9galement%20des%20photos%20en%20haute%20r%C3%A9solution%20et%20de%20bonne%20qualit%C3%A9%5D")
@@ -99,7 +111,16 @@
 
 
     - block javascripts
+        - if user is defined and user.email is defined
+            %script
+                currentUser = "#{user.email}";
+        - else
+            %script
+                currentUser = null;
+
         %script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+        %script(src="https://login.persona.org/include.js")
+        %script(src=asset('bundles/voileuxpersona/js/persona.js'))
         %script
             window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.9.1.min.js"><\/script>')
 

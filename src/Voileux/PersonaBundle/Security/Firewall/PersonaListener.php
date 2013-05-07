@@ -36,6 +36,9 @@ class PersonaListener implements ListenerInterface
 
         $assertion = $request->request->get('assertion');
 
+        if (!$assertion) {
+            return;
+        }
 
         $token = new PersonaUserToken();
         $token->setAssertion($assertion);

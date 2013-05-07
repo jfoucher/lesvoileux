@@ -23,7 +23,7 @@ class VoileuxPersonaExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        foreach (array('verifier_url', 'user_provider') as $key) {
+        foreach (array('verifier_url', 'user_provider', 'audience_url') as $key) {
             if (isset($config[$key])) {
                 $container->setParameter('persona.'.$key, $config[$key]);
             }

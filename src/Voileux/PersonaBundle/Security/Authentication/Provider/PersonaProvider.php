@@ -68,7 +68,7 @@ class PersonaProvider implements AuthenticationProviderInterface
         } catch (AuthenticationException $failed) {
             throw $failed;
         } catch (\Exception $failed) {
-            throw new AuthenticationException($failed->getMessage(), null, $failed->getCode(), $failed);
+            throw new AuthenticationException($failed->getMessage(), $failed->getCode());
         }
 
         // our user not able to verfiy, store, refresh, whatever handler
@@ -79,10 +79,12 @@ class PersonaProvider implements AuthenticationProviderInterface
 
     public function getAccessToken($assertion)
     {
+        $data = array(
+            'audience' => $this->audienceUrl,
+            'assertion' => $assertion,
+        );
 
-        $assertion['audience'] = urlencode($this->audienceUrl);
-
-        $verifier_token = json_decode($this->verifyAssertion($assertion));
+        $verifier_token = $this->verifyAssertion($data);
         if ($verifier_token && $verifier_token->status === 'okay')
         {
 //            $this->session->set('persona_email', $verifier_token->email);
@@ -100,7 +102,8 @@ class PersonaProvider implements AuthenticationProviderInterface
     {
         $this->browser->getClient()->setVerifyPeer(false);
         $result = $this->browser->post($this->verifierUrl, array(), http_build_query($data));
-        return json_decode($result);
+        $content = $result->getContent();
+        return json_decode($content);
     }
 
 

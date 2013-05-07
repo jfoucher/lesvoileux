@@ -16,10 +16,13 @@ class PersonaUserToken extends AbstractToken{
 
     private $assertion;
 
-    public function __construct(array $roles = array())
+    public function __construct(UserInterface $user = null, array $roles = array())
     {
         parent::__construct($roles);
 
+        if ($user instanceof UserInterface) {
+            $this->setUser($user);
+        }
         $this->setAuthenticated(count($roles) > 0);
     }
 

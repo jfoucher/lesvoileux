@@ -23,6 +23,7 @@ class Configuration implements ConfigurationInterface
         $rootNode->children()
             ->scalarNode('verifier_url')->defaultValue('https://verifier.login.persona.org/verify')->end()
             ->scalarNode('user_provider')->defaultNull()->end()
+            ->scalarNode('audience_url')->defaultNull()->end()
         ->end();
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for

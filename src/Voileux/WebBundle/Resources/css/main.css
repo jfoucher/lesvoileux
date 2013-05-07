@@ -155,6 +155,7 @@ body {
     margin: 8px 0 5px 0;
     font-size: 1.8em;
     padding:0;
+    font-weight: normal;
 
 }
 .title a {
@@ -606,6 +607,18 @@ footer ul {
     padding: 0;
     list-style: none;
 }
+a.persona-button{
+    padding: 0;
+    font-family: Abel, Helvetica, Helvetica Neue, Arial, sans-serif;;
+}
+nav .btn {
+    position: relative;
+    top: -2px;
+}
+.no-flexbox nav a.persona-button {
+    top: 10px;
+}
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */
@@ -629,6 +642,10 @@ footer ul {
     nav li:last-child a {
         margin-right: 0;
     }
+    nav a.btn, nav a.persona-button{
+        margin-top: 7px;
+    }
+
 
 /* ========================
     INTERMEDIATE: IE Fixes
@@ -673,10 +690,9 @@ footer ul {
         width: 38%;
     }
 
-    nav a.btn{
+    nav a.btn, nav a.persona-button{
         margin-top: 7px;
     }
-
 /* ============
     WIDE: Main
    ============ */

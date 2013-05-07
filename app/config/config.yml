@@ -178,4 +178,5 @@ avalanche_imagine:
 
 voileux_persona:
     verifier_url: 'https://verifier.login.persona.org/verify'
+    audience_url: 'http://lesvoileux.local'
     user_provider: voileux.core.user.manager

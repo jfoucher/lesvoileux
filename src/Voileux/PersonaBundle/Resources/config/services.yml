@@ -1,6 +1,4 @@
-parameters:
-    persona.verifier_url: 'https://verifier.login.persona.org/verify'
-    persona.audience_url: 'http://example.com'
+
 
 services:
     voileux.persona.authentication.listener:
