@@ -15,3 +15,4 @@ services:
             - %persona.verifier_url%
             - %persona.audience_url%
             - @buzz
+            - @event_dispatcher

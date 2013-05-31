@@ -8,6 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Voileux\PersonaBundle\Event\PersonaLoginEvent;
+use Voileux\PersonaBundle\PersonaEvents;
 
 class DefaultController extends Controller
 {
@@ -18,6 +20,7 @@ class DefaultController extends Controller
     {
         $data = $request->request->all();
         $user = $this->get('security.context')->getToken()->getUser();
+
         return new Response($this->get('serializer')->serialize($user, 'json'));
     }
     /**

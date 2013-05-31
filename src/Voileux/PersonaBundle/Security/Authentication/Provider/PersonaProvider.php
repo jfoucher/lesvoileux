@@ -14,7 +14,10 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
 use Voileux\PersonaBundle\Security\Authentication\Token\PersonaUserToken;
 use Buzz\Browser;
-
+use Voileux\PersonaBundle\Event\PersonaLoginEvent;
+use Voileux\PersonaBundle\PersonaEvents;
+use Voileux\PersonaBundle\Event\PersonaRegisterEvent;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class PersonaProvider implements AuthenticationProviderInterface
 {
@@ -24,9 +27,10 @@ class PersonaProvider implements AuthenticationProviderInterface
     private $verifierUrl;
     private $audienceUrl;
     private $browser;
+    private $dispatcher;
 
 
-    public function __construct(UserProviderInterface $userProvider = null, $createUserIfNotExists = false, $verifierUrl, $audienceUrl, Browser $browser )
+    public function __construct(UserProviderInterface $userProvider = null, $createUserIfNotExists = false, $verifierUrl, $audienceUrl, Browser $browser, EventDispatcherInterface $dispatcher)
     {
         $implements = class_implements($userProvider);
         if ($createUserIfNotExists && !$userProvider instanceof \FOS\UserBundle\Model\UserManagerInterface) {
@@ -38,6 +42,7 @@ class PersonaProvider implements AuthenticationProviderInterface
         $this->verifierUrl = $verifierUrl;
         $this->audienceUrl = $audienceUrl;
         $this->browser = $browser;
+        $this->dispatcher = $dispatcher;
     }
 
     public function authenticate(TokenInterface $token)
@@ -121,11 +126,15 @@ class PersonaProvider implements AuthenticationProviderInterface
         try
         {
             $user = $this->userProvider->loadUserByUsername($uid->email);
+            $event = new PersonaLoginEvent($user);
+            $this->dispatcher->dispatch(PersonaEvents::PERSONA_LOGIN, $event);
         }   catch (UsernameNotFoundException $ex) {
             if (!$this->createUserIfNotExists) {
                 throw $ex;
             }
             $user = $this->userProvider->createUserFromAccessToken($uid);
+            $event = new PersonaRegisterEvent($user);
+            $this->dispatcher->dispatch(PersonaEvents::PERSONA_REGISTER, $event);
         }
 
         if (!$user instanceof UserInterface) {

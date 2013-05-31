@@ -32,3 +32,12 @@ services:
             - @fos_user.util.email_canonicalizer
             - @fos_user.entity_manager
             - Voileux\CoreBundle\Entity\User
+
+    voileux.core.eventsubscriber.email_subscriber:
+        class: Voileux\CoreBundle\EventSubscriber\EmailSubscriber
+        arguments:
+            - @mailer
+            - @service_container
+            - @translator
+        tags:
+            - { name: kernel.event_subscriber }
