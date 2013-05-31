@@ -51,6 +51,43 @@ class AjaxController extends Controller
 
     }
 
+    /**
+     * @Route("/subscribe", name="subscribe")
+     */
+    public function subscribeAction(Request $request)
+    {
+        $form = $this->createFormBuilder()
+            ->add('email', 'email')
+            ->getForm();
+
+
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
+
+            // data is an array with "name", "email", and "message" keys
+            $data = $form->getData();
+
+            if($form->isValid()){
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('New Owner request on les voileux')
+                    ->setFrom($this->container->getParameter('voileux.admin.email'))
+                    ->setReplyTo($data['email'])
+                    ->setTo($this->container->getParameter('voileux.admin.email'))
+                    ->setBody('A new owner signed up : '.$data['email'])
+                ;
+                $this->get('mailer')->send($message);
+
+                return new Response(null, 200, array('Content-type' => 'application/json'));
+
+            } else {
+                $r = $this->get('jms_serializer')->serialize($form, 'json');
+                return new Response($r, 400, array('Content-type' => 'application/json'));
+            }
+        }
+
+
+    }
+
     protected function getData(Request $request)
     {
         if ('json' === $request->getContentType()) {

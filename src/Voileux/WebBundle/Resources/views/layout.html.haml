@@ -17,7 +17,8 @@
                 filter='?yui_css' |
             %link(rel="stylesheet" href=asset_url)
     %link(rel="stylesheet" href=asset('bundles/voileuxpersona/css/persona-buttons.css'))
-    %script(src="bundles/voileuxweb/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js")
+    - block head_sripts
+        %script(src="bundles/voileuxweb/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js")
 %body
     /[if lt IE 7] <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 
@@ -135,17 +136,17 @@
                 filter='?closure' |
             %script(src=asset_url)
 
-        - if isEnabled('analytics')
-            %script
-                var _gaq = _gaq || [];
-                _gaq.push(['_setAccount', 'UA-8465441-27']);
-                _gaq.push(['_trackPageview']);
+            - if isEnabled('analytics')
+                %script
+                    var _gaq = _gaq || [];
+                    _gaq.push(['_setAccount', 'UA-8465441-27']);
+                    _gaq.push(['_trackPageview']);
 
-                (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-                })();
+                    (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                    })();
 
 
 

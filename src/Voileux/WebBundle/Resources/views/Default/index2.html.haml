@@ -1,0 +1,37 @@
+- extends "VoileuxWebBundle::layout.html.haml"
+
+- block hero
+    .hero
+        %ul.slider.clearfix
+            - for boat in boats
+                %li
+                    %img(src="#{(asset('bundles/voileuxweb/img/boats/') ~ boat.photos[0])|apply_filter('boat_index')}" width="100%")
+                    .description
+                        %a.avatar(href="#{path('boat', {slug: boat.slug})}")
+                            %img(src="#{(boat.owner.avatar is defined and boat.owner.avatar is not null ? boat.owner.avatar|apply_filter('user_index') : boat.owner.email|gravatar(80))}" width="40")
+                        .text
+                            %h3
+                                %a(href="#{path('boat', {slug: boat.slug})}")
+                                    #{boat.name}
+                            %p
+                                #{boat.country} - #{boat.pricePerDay} #{boat.currency}
+
+        #main-search(style="text-align: center" )
+            .form-title
+                %h2
+                    Louer votre voilier
+                %p
+                    Trouvez des locataires compétents et sûrs
+            #submit-success(style="display:none")
+                %p
+                    Votre demande vient d'etre prise en compte, nous vous contacterons dès que possible pour ajouter votre voilier à notre base de données
+            %form.clearfix.search-form#main-search-form(action="{{ path('subscribe') }}" method="post" style="margin: 2em auto; width:440px")
+
+                .form-field.form-location
+                    %label(for="email") Email
+                    %input(type="email"  name="email" id="email" style="width: 263px;font-size: 1.5em;")
+
+                .form-field.form-submit
+                    %button.btn#search-now(type="submit" style="font-size: 1.55em;")
+                        Inscription
+

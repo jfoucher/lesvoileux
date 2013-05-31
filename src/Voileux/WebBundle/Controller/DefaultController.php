@@ -33,6 +33,19 @@ class DefaultController extends Controller
             'form' => $form->createView()
         );
     }
+    /**
+     * @Route("/index", name="root2")
+     * @Template(engine="haml")
+     */
+    public function index2Action(Request $request)
+    {
+        $boatManager = $this->get('voileux.core.boat.manager');
+        $boats = $boatManager->findByPosition(Boat::BOAT_POSITION_HOME);
+
+        return $this->getGeneralData($request) + array(
+            'boats' => $boats,
+        );
+    }
 
     /**
      * @Route("/faq", name="faq")
