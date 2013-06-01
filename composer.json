@@ -8,6 +8,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/jfoucher/PersonaBundle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/jfoucher/SensioBuzzBundle"
         }
     ],
     "require": {
@@ -38,7 +42,7 @@
         "knplabs/knp-menu-bundle": "1.1.*",
         "stof/doctrine-extensions-bundle": "dev-master",
         "avalanche123/imagine-bundle": "dev-develop",
-        "sensio/buzz-bundle": "dev-master"
+        "sensio/buzz-bundle": "dev-my"
 
     },
     "scripts": {
