@@ -14,7 +14,6 @@ function PlaceholderLabels(className, targetElement)
     className = className || 'inline';
     targetElement = targetElement || document;
 
-    console.log('placeholders', className, targetElement);
 
     if ( ! targetElement || targetElement.nodeName === undefined )
     {
