@@ -44,10 +44,8 @@ $('.search-form').submit(function(e){
         persons: $('#search_persons').val()
     }
 
-    console.log(params);
 
     params = JSON.stringify(params);
-    console.log(params);
     var req = $.ajax({
         url: '/search',
         data: params,
@@ -64,7 +62,58 @@ $('.search-form').submit(function(e){
         form.hide();
         $('#submit-success').show();
         if(window._gaq) {
-            _gaq.push(['_trackPageview', '/search_boat_success']);
+            _gaq.push(['_trackPageview', '/form_success']);
+        }
+
+    });
+    req.fail(function(xhr) {
+        var data = JSON.parse(xhr.responseText);
+        showErrors(data.errors);
+        $('#search-now').removeClass('loading disabled');
+
+    });
+
+
+});
+
+
+$('.sunbscribe-form').submit(function(e){
+    var form = $(this);
+    var hideErrors = function() {
+        $('.form-field input').removeClass('error');
+    };
+
+    var showErrors = function(errs) {
+        for (var err in errs) {
+            if(errs[err] == false) {
+                $('#'+err).addClass('error')
+            }
+        }
+    }
+    hideErrors();
+    e.preventDefault();
+    var params = {
+        email: $('#search_email').val()
+    }
+
+    params = JSON.stringify(params);
+    var req = $.ajax({
+        url: '/search',
+        data: params,
+        type: 'POST',
+        dataType: 'json',
+        contentType: "application/json"
+    });
+    $('#search-now').addClass('loading disabled');
+    req.always(function(){
+        $('#search-now').removeClass('loading disabled');
+    });
+    req.done(function(data) {
+
+        form.hide();
+        $('#submit-success').show();
+        if(window._gaq) {
+            _gaq.push(['_trackPageview', '/form_success']);
         }
 
     });
