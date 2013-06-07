@@ -12,20 +12,20 @@ set :web_path,    "web"
 set :langs, ['en', 'fr', 'de', 'es']
 
 if "preprod" == target
-  set :user, "ubuntu"
+  set :user, "deploy"
   set :clear_controllers, false
   set :domain,      "dev.#{application}.com"
   set :branch,  "develop"
   set :symfony_env_prod,  "dev"
   set :symfony_debug_prod, ""
-  set :deploy_to,   "/home/ubuntu/www/lesvoileux.com"
+  set :deploy_to,   "/var/www/lesvoileux.com"
 elsif "prod" == target
-  set :user, "ubuntu"
+  set :user, "deploy"
   set :domain,  "lesvoileux.com"
   set :branch,      "develop"
   set :symfony_env_prod,  "dev"
   set :symfony_debug_prod, "--no-debug"
-  set :deploy_to,   "/home/ubuntu/www/lesvoileux.com"
+  set :deploy_to,   "/var/www/lesvoileux.com"
 else
   raise "unknown target '#{target}'"
 end
@@ -75,7 +75,7 @@ logger.level = Logger::MAX_LEVEL
 namespace :deploy do
   desc "Overwrite the restart task because symfony doesn't need it."
   task :restart do
-    run "sudo /etc/init.d/php5-fpm reload"
+    #run "sudo /etc/init.d/php5-fpm reload"
   end
 
   desc "Overwrite the stop task because symfony doesn't need it."
