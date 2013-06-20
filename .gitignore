@@ -9,3 +9,11 @@ parameters.yml
 ./web/uploads
 ./web/media
 ./web/blog/wp-config.php
+app/cache
+vendor
+web/css
+web/js
+web/media
+web/bundles
+app/logs
+web/uploads
