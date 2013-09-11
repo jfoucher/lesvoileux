@@ -77,7 +77,7 @@ $('.search-form').submit(function(e){
 });
 
 
-$('.sunbscribe-form').submit(function(e){
+$('.subscribe-form').submit(function(e){
     var form = $(this);
     var hideErrors = function() {
         $('.form-field input').removeClass('error');
