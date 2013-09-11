@@ -62,7 +62,7 @@ $('.search-form').submit(function(e){
         form.hide();
         $('#submit-success').show();
         if(window._gaq) {
-            _gaq.push(['_trackPageview', '/form_success']);
+            _gaq.push(['_trackPageview', '/form_success/search_boats']);
         }
 
     });
@@ -113,7 +113,7 @@ $('.subscribe-form').submit(function(e){
         form.hide();
         $('#submit-success').show();
         if(window._gaq) {
-            _gaq.push(['_trackPageview', '/form_success']);
+            _gaq.push(['_trackPageview', '/form_success/email_signup']);
         }
 
     });
@@ -163,4 +163,16 @@ $('.boat-details .img-and-share').hover(function(){
     $(this).find('ul.share').fadeIn(200);
 }, function(){
     $(this).find('ul.share').fadeOut(200);
+});
+
+navigator.id.watch({
+    loggedInUser: currentUser,
+    onlogin: function(assertion) {
+        if(window._gaq) {
+            _gaq.push(['_trackPageview', '/signin']);
+        }
+        $('#signin').fadeOut(500, function(){
+            $('#signout').before('Bienvenue '+res.email+' ').fadeIn()
+        });
+    }
 });

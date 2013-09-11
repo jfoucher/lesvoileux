@@ -13,11 +13,7 @@ navigator.id.watch({
             data: {assertion: assertion},
             success: function(res, status, xhr) {
 //                window.location.reload();
-                console.log('logged in', res);
-                $('#signin').fadeOut(500, function(){
 
-                    $('#signout').before('Bienvenue '+res.email+' ').fadeIn()
-                });
             },
             error: function(xhr, status, err) {
                 navigator.id.logout();
@@ -43,7 +39,6 @@ navigator.id.watch({
 var signinLink = document.getElementById('signin');
 if (signinLink) {
     signinLink.onclick = function() {
-        console.log('logging in');
         navigator.id.request();
     };
 }
@@ -51,7 +46,6 @@ if (signinLink) {
 var signoutLink = document.getElementById('signout');
 if (signoutLink) {
     signoutLink.onclick = function() {
-        console.log('logging out');
         navigator.id.logout();
     };
 }
