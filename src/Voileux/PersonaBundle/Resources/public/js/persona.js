@@ -6,20 +6,7 @@ navigator.id.watch({
         // A user has logged in! Here you need to:
         // 1. Send the assertion to your backend for verification and to create a session.
         // 2. Update your UI.
-        $.ajax({ /* <-- This example uses jQuery, but you can use whatever you'd like */
-            type: 'POST',
-            dataType: 'json',
-            url: '/auth/login', // This is a URL on your website.
-            data: {assertion: assertion},
-            success: function(res, status, xhr) {
-//                window.location.reload();
 
-            },
-            error: function(xhr, status, err) {
-                navigator.id.logout();
-                alert("Login failure: " + err);
-            }
-        });
     },
     onlogout: function() {
         // A user has logged out! Here you need to:

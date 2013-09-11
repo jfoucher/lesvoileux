@@ -168,11 +168,25 @@ $('.boat-details .img-and-share').hover(function(){
 navigator.id.watch({
     loggedInUser: currentUser,
     onlogin: function(assertion) {
-        if(window._gaq) {
-            _gaq.push(['_trackPageview', '/signin']);
-        }
-        $('#signin').fadeOut(500, function(){
-            $('#signout').before('Bienvenue '+res.email+' ').fadeIn()
+        $.ajax({ /* <-- This example uses jQuery, but you can use whatever you'd like */
+            type: 'POST',
+            dataType: 'json',
+            url: '/auth/login', // This is a URL on your website.
+            data: {assertion: assertion},
+            success: function(res, status, xhr) {
+//                window.location.reload();
+                if(window._gaq) {
+                    _gaq.push(['_trackPageview', '/signin/']);
+                }
+                $('#signin').fadeOut(500, function(){
+                    $('#signout').before('Bienvenue '+res.email+' ').fadeIn()
+                });
+            },
+            error: function(xhr, status, err) {
+                navigator.id.logout();
+                alert("Login failure: " + err);
+            }
         });
+
     }
 });
