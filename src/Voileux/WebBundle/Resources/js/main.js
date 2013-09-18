@@ -9,7 +9,19 @@ $(document).ready(function(){
 
 $('.form-field input').placeholder();
 $('#search_persons').customSelect({customClass:'niceSelect'});
+var hideErrors = function() {
+    $('.form-field input').removeClass('error');
+};
 
+var showErrors = function(errs) {
+    console.log('children', errs);
+    for (var err in errs) {
+        console.log('error item', errs[err].errors);
+        if(typeof errs[err].errors !== 'undefined') {
+            $('#search_'+err).addClass('error')
+        }
+    }
+}
 function getFormData($form){
     var unindexed_array = $form.serializeArray();
     var indexed_array = {};
@@ -23,17 +35,7 @@ function getFormData($form){
 
 $('.search-form').submit(function(e){
     var form = $(this);
-    var hideErrors = function() {
-        $('.form-field input').removeClass('error');
-    };
 
-    var showErrors = function(errs) {
-        for (var err in errs) {
-            if(errs[err] == false) {
-                $('#'+err).addClass('error')
-            }
-        }
-    }
     hideErrors();
     e.preventDefault();
     var params = {
@@ -58,7 +60,6 @@ $('.search-form').submit(function(e){
         $('#search-now').removeClass('loading disabled');
     });
     req.done(function(data) {
-
         form.hide();
         $('#submit-success').show();
         if(window._gaq) {
@@ -68,7 +69,8 @@ $('.search-form').submit(function(e){
     });
     req.fail(function(xhr) {
         var data = JSON.parse(xhr.responseText);
-        showErrors(data.errors);
+        console.log(data);
+        showErrors(data.children);
         $('#search-now').removeClass('loading disabled');
 
     });
@@ -79,17 +81,7 @@ $('.search-form').submit(function(e){
 
 $('.subscribe-form').submit(function(e){
     var form = $(this);
-    var hideErrors = function() {
-        $('.form-field input').removeClass('error');
-    };
 
-    var showErrors = function(errs) {
-        for (var err in errs) {
-            if(errs[err] == false) {
-                $('#'+err).addClass('error')
-            }
-        }
-    }
     hideErrors();
     e.preventDefault();
     var params = {

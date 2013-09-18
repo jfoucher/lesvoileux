@@ -611,13 +611,15 @@ a.persona-button{
     padding: 0;
     font-family: Abel, Helvetica, Helvetica Neue, Arial, sans-serif;;
 }
-nav .btn {
+nav a.btn {
+    font-size: 15px;
+
+    overflow: hidden;
     position: relative;
-    top: -2px;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.5), 0px 0px 2px rgba(0, 0, 0, 0.2);
+
 }
-.no-flexbox nav a.persona-button {
-    top: 10px;
-}
+
 
 /* ==========================================================================
    Media Queries
@@ -629,11 +631,14 @@ nav .btn {
     INTERMEDIATE: Menu
    ==================== */
 
-    nav a {
+    nav a, nav a.btn {
         display:inline-block;
-        margin: 0 1.7%;
-        padding: 8px 2%;
+        margin-left: 1em;
+        padding: 6px 2%;
+        border: none;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.4)
     }
+
 
     nav li:first-child a {
         margin-left: 0;
@@ -641,9 +646,6 @@ nav .btn {
 
     nav li:last-child a {
         margin-right: 0;
-    }
-    nav a.btn, nav a.persona-button{
-        margin-top: 7px;
     }
 
 
@@ -688,11 +690,9 @@ nav .btn {
         text-align: right;
         float: right;
         width: 38%;
-    }
-
-    nav a.btn, nav a.persona-button{
         margin-top: 7px;
     }
+
 /* ============
     WIDE: Main
    ============ */

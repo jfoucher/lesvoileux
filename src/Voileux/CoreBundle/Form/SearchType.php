@@ -57,7 +57,7 @@ class SearchType extends AbstractType
     public function getDefaultOptions(array $options)
     {
         return array(
-            'validation_groups' => 'VoileuxSearch',
+//            'validation_groups' => 'VoileuxSearch',
         );
     }
 }
